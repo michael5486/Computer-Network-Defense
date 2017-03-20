@@ -1,0 +1,27 @@
+try #2
+
+I did these commands in the terminal once the NIC showed up in lsusb and iwconfig.
+
+iw list indicated that my NIC could be put in monitor mode after installing some open source drivers from GitHub
+
+rebooted computer, installed drivers on mac (maybe not necessary, but figured it wouldn’t hurt)
+
+
+
+
+
+plugged NIC into mac, connected it to linux
+ifconfig 
+	shows plan information
+iw wlan0 set monitor none
+	sets wlan0 to monitor mode
+iw wlan0 info
+	confirms it is in monitor mode
+iwconfig
+	mode switched from managed to Auto
+airmon-ng start wlan0
+	monitor mode already enabled, should 		do nothing
+airmon-ng check kill
+	turns off interfering processes
+airodump-ng wlan0
+	begins packet dump
